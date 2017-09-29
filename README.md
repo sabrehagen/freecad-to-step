@@ -14,6 +14,32 @@ The output of the build pipeline will be stored in `freecad/export/output/output
 
 ## Folder Structure
 
+```
+├── build-container.sh
+├── run-pipeline.sh
+├── Dockerfile
+├── freecad
+│   ├── build
+│   │   ├── app
+│   │   │   ├── entrypoint.sh
+│   │   │   └── fcstd_to_step_converter.py
+│   │   ├── input -> ../prepare/output
+│   │   └── output
+│   ├── export
+│   │   ├── app
+│   │   │   ├── entrypoint.sh
+│   │   │   └── gist.sh
+│   │   ├── input -> ../build/output
+│   │   └── output
+│   └── prepare
+│       ├── app
+│       │   └── entrypoint.sh
+│       ├── input
+│       │   └── input.url
+│       └── output
+└── README.md
+```
+
 The below conventions have been used to form a framework that should suit all build pipeline stage needs.
 
 ### In the container
