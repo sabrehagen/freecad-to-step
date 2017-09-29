@@ -8,7 +8,7 @@ This repository contains a Docker container and associated convention for a buil
 
 The below conventions have been used to form a framework that should suit all build pipeline stage needs.
 
-Within the container:
+### In the container
 
 `/input` contains the input files for the build pipeline stage.
 `/output` contains the outputs from the build pipelie stage.
@@ -19,6 +19,16 @@ The `/app/entrypoint.sh` path is invoked when the container starts. The `/app` f
 The `input` and `output` directories can contain anything. Each stage of the build pipeline can rely on its requisite inputs to be contained in `/input` and will store its pipeline stage outputs in `/output`.
 
 The `app` directory contains the files to be used in the pipeline stage, conventionally invoked by `/entrypoint.sh`.
+
+### In the project directory
+
+The name of the provider that this build pipeline is built for is at the root directory, in this case `freecad`.
+
+Within each provider directory there are the build stages, in this case `prepare`, `build`, `export`.
+
+Within each build stage directory there are `input` and `output` directories which are used as inputs and outputs to each stage respectively.
+
+Each stage of 
 
 Some directories are symlinked as they are logically the same folder, for example, `prepare/output => build/input`, `build/output => export/input`.
 
