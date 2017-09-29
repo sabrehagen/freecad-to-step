@@ -2,6 +2,14 @@
 
 This repository contains a Docker container and associated convention for a build system that could be integrated with Stemn. The one container is intended to be used for each step of the build pipeline.
 
+# Getting Started
+
+Run the `./build-container` script to build the Docker container.
+
+Run the `./run-pipeline.sh` script to run the build pipeline end to end.
+
+The output of the build pipeline will be stored in `freecad/export/output/output.url`.
+
 # Conventions
 
 ## Folder Structure
@@ -39,11 +47,3 @@ This pipeline uses the stages:
 1. Prepare - acquire the requisite files from the Stemn API.
 2. Build - run the build process (what this container does).
 3. Export - upload the build artefact(s) to a server accessible by Stemn.
-
-# Getting Started
-
-Run the `./build-container` script to build the Docker container.
-
-Run the `./run-pipeline.sh` script to run the build pipeline end to end.
-
-The output of the build pipeline will be stored in `freecad/export/output/output.url`.
