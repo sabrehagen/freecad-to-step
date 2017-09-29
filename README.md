@@ -40,8 +40,6 @@ The output of the build pipeline will be stored in `freecad/export/output/output
 └── README.md
 ```
 
-The below conventions have been used to form a framework that should suit all build pipeline stage needs.
-
 ### In the container
 
 `/input` contains the input files for the build pipeline stage.
