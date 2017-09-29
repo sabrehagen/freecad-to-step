@@ -35,3 +35,5 @@ The build process should be broken into stages, each served by a different conta
 Run the `./build-container` script to build the Docker container.
 
 Run the `./run-pipeline.sh` script to run the build pipeline end to end.
+
+The output of the build pipeline will be stored in `freecad/export/output/output.url`.
