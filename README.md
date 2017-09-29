@@ -14,7 +14,9 @@ Some conventions have been used to form a framework. These will likely need to b
 
 # Running
 
+Run
+
 `./run-build.sh`
 
-Note: thee `cube.fcstd` file is mounted into the container to `/build/input` with the `--volume $(pwd)/app/cube.fcstd:/build/input` parameter. This allows the container to expect a single input file location, and the user to mount any file into the container at that location.
+Note: the `cube.fcstd` file is mounted into the container to `/build/input` with the `--volume $(pwd)/app/cube.fcstd:/build/input` parameter. This allows the container to expect a single input file location, and the user to mount any file into the container at that location.
 
