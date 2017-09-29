@@ -1,12 +1,12 @@
 # Stemn CI Container
 
-This repository contains a Docker container and associated convention for a build system that could be integrated with Stemn.
+This repository contains a Docker container and associated convention for a build system that could be integrated with Stemn. The one container is intended to be used for each step of the build pipeline.
 
 # Conventions
 
 ## Folder Structure
 
-The below conventions have been used to form a framework that should suit all build pipeline step needs.
+The below conventions have been used to form a framework that should suit all build pipeline stage needs.
 
 Within the container:
 
@@ -14,11 +14,13 @@ Within the container:
 `/output` contains the outputs from the build pipelie stage.
 `/app/entrypoint.sh` contains the entrypoint to the build pipeline stage.
 
-The `/app/entrypoint.sh` path will be invoked when the container starts. The `/app` folder can contain any other scripts needed by the pipeline stage.
+The `/app/entrypoint.sh` path is invoked when the container starts. The `/app` folder can contain any other scripts needed by the pipeline stage.
 
 The `input` and `output` directories can contain anything. Each stage of the build pipeline can rely on its requisite inputs to be contained in `/input` and will store its pipeline stage outputs in `/output`.
 
 The `app` directory contains the files to be used in the pipeline stage, conventionally invoked by `/entrypoint.sh`.
+
+Some directories are symlinked as they are logically the same folder, for example, `prepare/output => build/input`, `build/output => export/input`.
 
 ## Pipeline
 
