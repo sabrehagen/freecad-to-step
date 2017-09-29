@@ -4,7 +4,7 @@ This repository contains a Docker container and associated convention for a buil
 
 # Getting Started
 
-Run the `./build-container` script to build the Docker container.
+Run the `./build-container.sh` script to build the Docker container.
 
 Run the `./run-pipeline.sh` script to run the build pipeline end to end.
 
