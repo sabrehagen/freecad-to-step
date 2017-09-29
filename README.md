@@ -30,9 +30,11 @@ Within each build stage directory there are `input` and `output` directories whi
 
 Some directories are symlinked as they are logically the same folder, for example, `prepare/output => build/input`, `build/output => export/input`.
 
-## Pipeline
+# Build Pipeline
 
-The build process should be broken into stages, each served by a different container, and each conforming to a common API e.g. the convention used above. This allows the use of one container design for each stage of the build pipeline.
+The build process is broken into stages, which are composed in sequence into the build pipeline. By conforming to the convention above, each build stage of the build pipeline can use the same container design.
+
+This pipeline uses the stages:
 
 1. Prepare - acquire the requisite files from the Stemn API.
 2. Build - run the build process (what this container does).
