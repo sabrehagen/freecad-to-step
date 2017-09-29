@@ -20,3 +20,10 @@ Run
 
 Note: the `cube.fcstd` file is mounted into the container to `/build/input` with the `--volume $(pwd)/app/cube.fcstd:/build/input` parameter. This allows the container to expect a single input file location, and the user to mount any file into the container at that location.
 
+# Further Work
+
+There should be a few stages of the build process
+
+1. Prepare - acquire the requisite files from the Stemn API.
+2. Build - run the build process (what this container does).
+3. Save - upload the build artefact(s) to a server accessible by Stemn.
