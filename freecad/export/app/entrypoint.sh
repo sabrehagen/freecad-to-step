@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./gist.sh /input/output.step > /output/output.url
+/app/gist.sh /input/output.step > /output/output.url

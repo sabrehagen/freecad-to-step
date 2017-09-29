@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 # install supporting tools
 RUN apt update && \
-    apt install -y software-properties-common
+    apt install -y software-properties-common wget
 
 # install freecad
 RUN add-apt-repository ppa:freecad-maintainers/freecad-stable && \
