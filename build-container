@@ -1,1 +1,1 @@
-docker build -t freecad-ci .
+docker build -t stemn-ci .

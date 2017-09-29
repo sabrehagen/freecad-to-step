@@ -8,8 +8,8 @@ import sys
 
 # Make sure that the FreeCAD library is accessible
 FREECADPATH = '/usr/lib/freecad/lib/'
-INPUT_FILE = '/build/input'
-OUTPUT_FILE = '/build/output'
+INPUT_FILE = '/input/input.fcstd'
+OUTPUT_FILE = '/output/output.step'
 
 sys.path.append(FREECADPATH)
 

@@ -4,26 +4,36 @@ This repository contains sketches of a build system that could integrate with St
 
 # Conventions
 
-Some conventions have been used to form a framework. These will likely need to be expanded in future.
+The below conventions have been used to form a framework that should suit all build pipeline step needs.
 
-`build/input` contains the input file for the build process.
-`build/output` contains the output of the build process.
-`build/entrypoint.sh` contains the entrypoint to the build process.
+Within the container:
 
-`app` contains the files that will be used as part of the process - scripts, supporting files, inputs etc.
+`/input` contains the input files for the build pipeline stage.
+`/output` contains the outputs from the build pipelie stage.
+`/app/entrypoint.sh` contains the entrypoint to the build pipeline stage.
+
+The `/app/entrypoint.sh` path will be invoked when the container starts. The `/app` folder can contain any other scripts needed by the pipeline stage.
+
+The `input` and `output` directories can contain anything. Each stage of the build pipeline can rely on its requisite inputs to be contained in `/input` and will store its pipeline stage outputs in `/output`.
+
+The `app` directory contains the files to be used in the pipeline stage, conventionally invoked by `/entrypoint.sh`.
 
 # Running
 
-Run
+`./run-pipeline.sh`
 
-`./run-build.sh`
-
-Note: the `cube.fcstd` file is mounted into the container to `/build/input` with the `--volume $(pwd)/app/cube.fcstd:/build/input` parameter. This allows the container to expect a single input file location, and the user to mount any file into the container at that location.
+Note: the `cube.fcstd` file is mounted into the container to `/input/input.fcstd` with the `--volume $(pwd)/app/cube.fcstd:/input/input.fcstd` parameter. This is an example of how to supply input files to the container.
 
 # Further Work
 
-There should be a few stages of the build process
+## Pipeline
+
+The build process should be broken into stages, each served by a different container, and each conforming to a common API e.g. the convention used above. This allows the use of one container design for each stage of the build pipeline.
 
 1. Prepare - acquire the requisite files from the Stemn API.
 2. Build - run the build process (what this container does).
-3. Save - upload the build artefact(s) to a server accessible by Stemn.
+3. Export - upload the build artefact(s) to a server accessible by Stemn.
+
+## Build Runner
+
+A build runner will be created that sequences the three stages above.
