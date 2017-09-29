@@ -26,9 +26,7 @@ The name of the provider that this build pipeline is built for is at the root di
 
 Within each provider directory there are the build stages, in this case `prepare`, `build`, `export`.
 
-Within each build stage directory there are `input` and `output` directories which are used as inputs and outputs to each stage respectively.
-
-Each stage of 
+Within each build stage directory there are `input` and `output` directories which are used as inputs and outputs to each stage respectively. There is also an `app` directory which contains the `entrypoint.sh` and files used as part of the build stage.
 
 Some directories are symlinked as they are logically the same folder, for example, `prepare/output => build/input`, `build/output => export/input`.
 
