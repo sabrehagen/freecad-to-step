@@ -1,8 +1,10 @@
-# FreeCad to STEP Converter
+# Stemn CI Container
 
-This repository contains sketches of a build system that could integrate with Stemn.
+This repository contains a Docker container and associated convention for a build system that could be integrated with Stemn.
 
 # Conventions
+
+## Folder Structure
 
 The below conventions have been used to form a framework that should suit all build pipeline step needs.
 
@@ -18,14 +20,6 @@ The `input` and `output` directories can contain anything. Each stage of the bui
 
 The `app` directory contains the files to be used in the pipeline stage, conventionally invoked by `/entrypoint.sh`.
 
-# Running
-
-`./run-pipeline.sh`
-
-Note: the `cube.fcstd` file is mounted into the container to `/input/input.fcstd` with the `--volume $(pwd)/app/cube.fcstd:/input/input.fcstd` parameter. This is an example of how to supply input files to the container.
-
-# Further Work
-
 ## Pipeline
 
 The build process should be broken into stages, each served by a different container, and each conforming to a common API e.g. the convention used above. This allows the use of one container design for each stage of the build pipeline.
@@ -34,6 +28,8 @@ The build process should be broken into stages, each served by a different conta
 2. Build - run the build process (what this container does).
 3. Export - upload the build artefact(s) to a server accessible by Stemn.
 
-## Build Runner
+# Getting Started
 
-A build runner will be created that sequences the three stages above.
+Run the `./build-container` script to build the Docker container.
+
+Run the `./run-pipeline.sh` script to run the build pipeline end to end.

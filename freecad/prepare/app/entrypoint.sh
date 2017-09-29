@@ -1,1 +1,1 @@
-wget -i /input/input.url -o /output/input.fcstd
+wget -i /input/input.url -O /output/input.fcstd
