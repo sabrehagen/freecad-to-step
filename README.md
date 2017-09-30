@@ -69,5 +69,5 @@ The build process is broken into stages, which are composed in sequence into the
 This pipeline uses the stages:
 
 1. Prepare - acquire the requisite files from the Stemn API.
-2. Build - run the build process (what this container does).
+2. Build - run the build process.
 3. Export - upload the build artefact(s) to a server accessible by Stemn.
